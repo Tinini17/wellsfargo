@@ -14,7 +14,7 @@
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Roboto',sans-serif; background:#e8e8e8; display:flex; justify-content:center; align-items:flex-start; min-height:100vh; padding:20px; }
-.app { background:var(--bg); max-width:420px; width:100%; border-radius:20px; overflow:hidden; min-height:700px; display:flex; flex-direction:column; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.18); }
+.app { background:var(--bg); max-width:420px; width:100%; border-radius:20px; overflow:hidden; display:flex; flex-direction:column; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.18); }
 
 /* ── SCREENS ── */
 .screen { display:none; flex-direction:column; flex:1; }
@@ -169,3 +169,27 @@ body { font-family:'Roboto',sans-serif; background:#e8e8e8; display:flex; justif
 .toast.ok .t-icon { color:#66bb6a; }
 .toast.err .t-icon { color:#ef5350; }
 .toast.info .t-icon { color:#42a5f5; }
+
+/* Compact mobile adjustments to reduce scrolling on small phones */
+@media (max-width:420px), (max-height:760px) {
+  body { padding:12px; }
+  .app { border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+  .topbar { padding:10px 12px; }
+  .scroll-body { padding:12px; padding-bottom:72px; }
+  .balance-card { padding:14px; margin-bottom:12px; }
+  .balance-amount { font-size:28px; }
+  .balance-label { font-size:11px; }
+  .savings-card { padding:12px; margin-bottom:12px; }
+  .sav-amount { font-size:18px; }
+  .quick-actions { grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:12px; }
+  .qa-btn { padding:10px 6px; font-size:11px; }
+  .card { padding:12px; margin-bottom:12px; }
+  .card-title { font-size:11px; }
+  .tx-item { padding:8px 0; }
+  .tx-icon { width:34px; height:34px; font-size:16px; }
+  .bottom-nav { padding:6px 0 8px; }
+  .nav-btn .icon { font-size:20px; }
+  .sec-header .sec-title { font-size:16px; }
+  /* Hide recent activity card on home to avoid scrolling on small screens */
+  #sec-home > .card { display:none; }
+}
